@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2 class="bg-success text-light text-center jumbotron text-uppercase p-3">Zvířata</h2>
+
+    <div class="row">
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Plemeno</th>
+      <th scope="col">Druh</th>
+      <th scope="col">Ocenění</th>
+      <th scope="col">Číslo</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for zvire in zvirata %}
+    <tr>
+        <td>{{ zvire.plemeno }}</td>
+    <td>
+       {{ zvire.druh_zvirete }}
+    </td>
+     <td>
+        {% for oceneni in zvire.oceneni.all %}
+                   {{ oceneni }}
+                {% endfor %}
+    </td>
+    <td>{{ zvire.cislo_zvirete }}</td>
+
+    </tr>
+
+
+{% endfor %}
+
+    </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}

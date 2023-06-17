@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Seznam chovatelů
+{% endblock %}
+
+{% block content %}
+    <h2>seznam chovatelů</h2>
+    <div class="row bg-dark p-3">
+    {% for chovatel in chovatele %}
+        <div class="col-lg-2 col-md-3">
+            <p><a href="{% url 'chovatel_detail' chovatel.id %}">{{ chovatel.jmeno }} {{ chovatel.prijmeni }}</a></p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

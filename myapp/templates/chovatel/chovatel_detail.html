@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ chovatel }}
+{% endblock %}
+
+{% block content %}
+    <h2 class="display-4 text-center">{{ chovatel.jmeno }} <b>{{ chovatel.prijmeni }}</b></h2>
+    <div class="row bg-dark p-3 text-light">
+        <div class="col-lg-4">
+             <p>Číslo průkazu: {{ chovatel.cislo_prukazu }}</p>
+            <p> Telefon: {{ chovatel.telefon }}</p>
+    <p>Vystavuje: {% for zvire in chovatel.zvire_set.all %}
+                <li> {{ zvire }}</li>
+            {% endfor %}</p>
+    <img src="{{ chovatel.fotografie }}">    
+
+
+
+
+        </div>
+    </div>
+{% endblock %}
